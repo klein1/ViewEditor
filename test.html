@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    #smartGuideFeng {
+        display: none;
+        bottom: 30px;
+        position: fixed;
+        left: 0px;
+        height: 190px;
+        width: 50px;
+        z-index: 100;
+    }
+
+    #smartGuideFeng .xiaofeng-hide {
+        position: absolute;
+        bottom: 0px;
+        width: 50px;
+        height: 131px;
+        background: url(/img/xiaofeng-hide-v2.png) no-repeat;
+    }
+
+    #smartGuideFeng div.sg-xiaofeng-hide-eye-l-v3 {
+        padding: 0px;
+        position: absolute;
+        left: -2px;
+        bottom: 82px;
+        width: 8px;
+        height: 8px;
+        background: url(/img/eye-hide-v26.png) no-repeat bottom;
+        z-index: 101;
+    }
+
+    #smartGuideFeng div.sg-xiaofeng-hide-eye-r-v3 {
+        padding: 0px;
+        position: absolute;
+        left: -2px;
+        bottom: 38px;
+        width: 8px;
+        height: 8px;
+        background: url(/img/eye-hide-v26.png) no-repeat bottom;
+        z-index: 101;
+    }
+
+    #smartGuideFeng .sg-xiaofeng-hide-notice {
+        position: absolute;
+        left: 30px;
+        top: 60px;
+        height: 22px;
+        width: 22px;
+        background: #FF9D00;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 22px;
+        text-align: center;
+        color: white;
+        display: none;
+    }
+    </style>
+   </head>
+<body>
+<p id="jg">
+</p>
+<div id="smartGuideFeng" style="display: block; left: 0px;">
+    <div class="xiaofeng-hide"></div>
+    <div class="sg-xiaofeng-hide-eye-l-v3" style="bottom: 82px; left: 17px;"></div>
+    <div class="sg-xiaofeng-hide-eye-r-v3" style="bottom: 38px; left:17px;"></div>
+    <div class="sg-xiaofeng-hide-notice"></div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script>
+    //document.write("i like lol");
+    //alert(css.replace("}\n","}\n#markdown-content "));
+    var jg = document.getElementById('jg');
+    var height =document.documentElement.clientHeight;
+    var width=document.documentElement.clientWidth;
+    var moveheight;
+    var xtimes = width/17;
+    var ytimes;
+    var offset =40;
+//alert(width);
+    document.onmousemove = function  (e) {
+        e = e || window.event;
+        jg.innerHTML = 'layerX:'+e.layerX+
+            ',layerY:'+e.layerY+
+            ', <br/>clientX:'+e.clientX+
+            ',clientY:'+e.clientY+
+            ', <br/>pageX:'+e.pageX+
+            ',pageY :'+e.pageY+
+            ',<br/>offsetX:'+e.offsetX+
+            ',offsetY:'+e.offsetY+
+            ',<br/>screenX:'+e.screenX+
+            ',screenY:'+e.screenY+
+            ',<br/>x:'+e.x+
+            ',y:'+e.y;
+
+        moveheight=(-6/width)*e.x+10;
+        ytimes=height/moveheight;
+
+        var x,y;
+        x= e.x/xtimes;
+        y=(height-e.y)/ytimes;
+
+        $(".sg-xiaofeng-hide-eye-l-v3").css("bottom",y+offset);
+        $(".sg-xiaofeng-hide-eye-l-v3").css("left",x);
+
+        $(".sg-xiaofeng-hide-eye-r-v3").css("bottom",y+44+offset);
+        $(".sg-xiaofeng-hide-eye-r-v3").css("left",x);
+    }
+
+    /*var getAngle = function(Xc, Yc, Xa, Ya, Xb, Yb) {
+        var v1x = Xb - Xc;
+        var v1y = Yb - Yc;
+        var v2x = Xa - Xc;
+        var v2y = Ya - Yc;
+        return 180 * (Math.atan2(v1x, v1y) - Math.atan2(v2x, v2y)) / Math.PI
+    };
+    var left_center_offset = {
+            left: 30,
+            top: 82
+        },
+        right_center_offset = {
+            left: 96,
+            top: 80
+        },
+        radius = 10;
+    var setEyeOffset = function(event) {
+        var offset = $("#smartGuideFeng").offset();
+        var x1 = offset.left + left_center_offset.left;
+        var y1 = offset.top + left_center_offset.top;
+        var x2 = offset.left + right_center_offset.left;
+        var y2 = offset.top + right_center_offset.top;
+        var n1 = event.clientX - x1;
+        var m1 = -(event.clientY - y1);
+        var k1 = Math.atan2(m1, n1);
+        var n2 = event.clientX - x2;
+        var m2 = -(event.clientY - y2);
+        var k2 = Math.atan2(m2, n2);
+        var x11 = (Math.cos(k1) * radius + x1).toFixed(0);
+        var y11 = (( - Math.sin(k1) * radius) + y1).toFixed(0);
+        $(".sg-xiaofeng-hide-eye-l-v3").offset({
+            left: x11,
+            top: y11
+        });
+        var x22 = (Math.cos(k2) * radius + x2).toFixed(0);
+        var y22 = (( - Math.sin(k2) * radius) + y2).toFixed(0);
+        $(".sg-xiaofeng-hide-eye-r-v3").offset({
+            left: x22,
+            top: y22
+        })
+    };
+    $(window).mousemove(setEyeOffset);*/
+</script>
+
+</body></html>

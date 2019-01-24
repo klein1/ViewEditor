@@ -1,2 +1,2 @@
 # ViewEditor
-Easy to edit web pages on code and view using codemirror
+Easy to edit web pages both on code and view using codemirror

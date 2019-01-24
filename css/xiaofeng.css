@@ -1,0 +1,55 @@
+#smartGuideFeng {
+    display: none;
+    bottom: 30px;
+    position: fixed;
+    left: 0px;
+    heightt: 190px;
+    width: 50px;
+    z-index: 100;
+    cursor:pointer;
+}
+
+#smartGuideFeng .xiaofeng-hide {
+    position: absolute;
+    bottom: 0px;
+    width: 50px;
+    height: 131px;
+    background: url(/img/xiaofeng-hide-v2.png) no-repeat;
+}
+
+#smartGuideFeng div.sg-xiaofeng-hide-eye-l-v3 {
+    padding: 0px;
+    position: absolute;
+    left: -2px;
+    bottom: 82px;
+    width: 8px;
+    height: 8px;
+    background: url(/img/eye-hide-v26.png) no-repeat bottom;
+    z-index: 101;
+}
+
+#smartGuideFeng div.sg-xiaofeng-hide-eye-r-v3 {
+    padding: 0px;
+    position: absolute;
+    left: -2px;
+    bottom: 38px;
+    width: 8px;
+    height: 8px;
+    background: url(/img/eye-hide-v26.png) no-repeat bottom;
+    z-index: 101;
+}
+
+#smartGuideFeng .sg-xiaofeng-hide-notice {
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    height: 22px;
+    width: 22px;
+    background: #FF9D00;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    color: white;
+    display: none;
+}
